@@ -1,0 +1,8 @@
+title: "Daily Notes"
+description: "团队每月笔记汇总"
+theme: minima
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
