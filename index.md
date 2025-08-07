@@ -1,6 +1,7 @@
 ---
 layout: default
 title: ""
+hide_title: true
 ---
 
 # 腾文的笔记汇总
