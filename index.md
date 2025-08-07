@@ -3,9 +3,9 @@ layout: default
 title: ""
 ---
 
-# 🗃️ 月度笔记汇总
+# 腾文的笔记汇总
 
-以下是所有已发布的月度工作记录：
+以下是所有已发布的每日工作记录：
 
 <ul>
   {% for note in site.notes %}
