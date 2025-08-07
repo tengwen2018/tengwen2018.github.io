@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Daily Notes"
-hide_title: true
 ---
 
 # 腾文的笔记汇总
