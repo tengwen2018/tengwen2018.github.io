@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ""
+title: "Daily Notes"
 hide_title: true
 ---
 
