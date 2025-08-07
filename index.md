@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Daily Notes"
+title: ""
 ---
 
 # 腾文的笔记汇总
