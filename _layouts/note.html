@@ -1,22 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; line-height: 1.8; padding: 2em; }
-    h1 { color: #004477; }
-    a { color: #0066cc; }
-  </style>
+  {%- include head.html -%}
 </head>
 <body>
-  <h1>{{ page.title }}</h1>
-  <div>
-    {{ content }}
-  </div>
-  <p><a href="/">⬅ 返回首页</a></p>
+  {%- include header.html -%}
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper note-body">
+      {{ content }}   <!-- ⚠️ 这里不要加 | escape / | newline_to_br / | markdownify 等 -->
+    </div>
+  </main>
+  {%- include footer.html -%}
 </body>
 </html>
+
 
 <style>
   /* 平滑滚动到锚点 */
