@@ -35,16 +35,7 @@
     margin: .15rem 0;
     position: relative;
   }
-  /* 自动编号：01、02、03…（想要圆点就删掉这两段） */
-  #markdown-toc li::before {
-    counter-increment: sec;
-    content: counter(sec, decimal-leading-zero) ". ";
-    position: absolute;
-    left: -2.2rem;
-    width: 2rem;
-    text-align: right;
-    opacity: .5;
-  }
+  
 
   /* 目录链接样式与交互 */
   #markdown-toc a {
