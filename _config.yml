@@ -18,6 +18,7 @@ theme: minima
   font-size: 0.9rem;
 }
 
+
 collections:
   notes:
     output: true
