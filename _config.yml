@@ -7,13 +7,6 @@ collections:
     output: true
     permalink: /notes/:name/
 
-## 显示代码行号
-```yaml
-kramdown:
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
-
 markdown: kramdown
 highlighter: rouge
 rouge:
