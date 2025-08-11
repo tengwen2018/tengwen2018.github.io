@@ -16,11 +16,5 @@ kramdown:
 
 markdown: kramdown
 highlighter: rouge
-kramdown:
-  input: GFM
-  auto_ids: true
-  toc_levels: 2..3
-  # 可选：显示行号
-  # syntax_highlighter_opts:
-  #   block:
-  #     line_numbers: true
+rouge:
+  theme: github
