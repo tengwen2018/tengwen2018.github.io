@@ -2,80 +2,64 @@
 <html lang="zh">
 <head>
   {%- include head.html -%}
+
+  <style>
+    /* 平滑滚动到锚点 */
+    html { scroll-behavior: smooth; }
+
+    /* 目录块整体：更紧凑 */
+    #markdown-toc {
+      margin: .25rem 0 0 0;
+      padding-left: 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      list-style: none;
+    }
+    #markdown-toc li { margin: .15rem 0; position: relative; }
+
+    /* 目录链接交互 */
+    #markdown-toc a { text-decoration: none; border-bottom: 1px dashed transparent; }
+    #markdown-toc a:hover { border-bottom-color: currentColor; }
+
+    /* 折叠块 summary 样式 */
+    details > summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      margin-bottom: .25rem;
+      font-size: 2rem; /* 这里调目录标题大小 */
+    }
+    details > summary::before { content: "▸ "; display: inline-block; transform: translateY(-1px); opacity: .6; }
+    details[open] > summary::before { content: "▾ "; }
+
+    /* 命中锚点高亮 */
+    h2:target {
+      background: rgba(0, 120, 215, .08);
+      border-left: 4px solid rgba(0, 120, 215, .5);
+      padding-left: .5rem;
+      scroll-margin-top: 72px;
+    }
+
+    /* 正文列表紧凑些 */
+    .note-body ul { margin: .25rem 0 .5rem 1.2rem; }
+    .note-body li { margin: .1rem 0; }
+
+    /* 代码块可读性：可按需调整 */
+    .highlight pre, pre code {
+      font-size: 14px;
+      line-height: 1.55;
+      border-radius: 6px;
+    }
+  </style>
 </head>
+
 <body>
   {%- include header.html -%}
   <main class="page-content" aria-label="Content">
     <div class="wrapper note-body">
-      {{ content }}   <!-- 这里不要加 | escape / | newline_to_br / | markdownify 等 -->
+      {{ content }}   <!-- 不要加任何过滤器 -->
     </div>
   </main>
   {%- include footer.html -%}
 </body>
 </html>
-
-
-<style>
-  /* 平滑滚动到锚点 */
-  html { scroll-behavior: smooth; }
-
-  /* 目录块整体：去掉上下空白、字号稍小 */
-  #markdown-toc {                 /* kramdown 生成的 TOC 的默认 id */
-    margin: .25rem 0 0 0;
-    padding-left: 1.2rem;        /* 控制缩进 */
-    font-size: 0.95rem;
-    line-height: 1.4;
-    list-style: none;             /* 先去掉默认符号，下面自定义序号 */
-    counter-reset: sec;           /* 开启 CSS 计数器 */
-  }
-  #markdown-toc li {
-    margin: .15rem 0;
-    position: relative;
-  }
-  
-
-  /* 目录链接样式与交互 */
-  #markdown-toc a {
-    text-decoration: none;
-    border-bottom: 1px dashed transparent;
-  }
-  #markdown-toc a:hover {
-    border-bottom-color: currentColor;
-  }
-
-  /* 折叠块 <details> 的 summary（下拉箭头换成自定义） */
-  details > summary {
-    cursor: pointer;
-    list-style: none;             /* 去掉默认小三角 */
-    font-weight: 600;
-    margin-bottom: .25rem;
-  }
-  details > summary::before {
-    content: "▸ ";
-    display: inline-block;
-    transform: translateY(-1px);
-    opacity: .6;
-  }
-  details[open] > summary::before {
-    content: "▾ ";
-  }
-
-  /* 命中锚点的当天标题高亮（点击目录后更易定位） */
-  h2:target {
-    background: rgba(0, 120, 215, .08);
-    border-left: 4px solid rgba(0, 120, 215, .5);
-    padding-left: .5rem;
-    scroll-margin-top: 72px;  /* 有固定头部时可防止被遮住，按需调整 */
-  }
-
-  /* 更紧凑的正文列表 */
-  .note-body ul { margin: .25rem 0 .5rem 1.2rem; }
-  .note-body li { margin: .1rem 0; }
-
-    /* 控制折叠/展开标题的样式 */
-  details > summary {
-    font-size: 2rem;   /* 调大字体，例如 1.2 倍 */
-    font-weight: bold;   /* 加粗 */
-    cursor: pointer;     /* 鼠标变成小手 */
-  }
-</style>
