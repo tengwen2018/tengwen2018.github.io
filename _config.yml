@@ -6,3 +6,9 @@ collections:
   notes:
     output: true
     permalink: /notes/:name/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  toc_levels: 2..3
