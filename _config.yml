@@ -2,6 +2,22 @@ title: "Daily Notes"
 description: "张琳琳团队每月笔记汇总"
 theme: minima
 
+/* 代码块背景 + 边框（覆盖 minima 默认透明背景） */
+.note-body pre {
+  background-color: #f6f8fa; /* GitHub 灰背景 */
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 0.8rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+/* 代码文字 */
+.note-body code {
+  font-family: SFMono-Regular, Consolas, Menlo, monospace;
+  font-size: 0.9rem;
+}
+
 collections:
   notes:
     output: true
