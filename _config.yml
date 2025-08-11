@@ -12,3 +12,10 @@ kramdown:
   input: GFM
   auto_ids: true
   toc_levels: 2..3
+
+## 显示代码行号
+```yaml
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
