@@ -6,51 +6,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 平滑滚动到锚点 */
-    html { scroll-behavior: smooth; }
-
-    /* 目录块整体：更紧凑 */
-    #markdown-toc {
-      margin: .25rem 0 0 0;
-      padding-left: 1.2rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      list-style: none;
+    :root{--code-bg:#f6f8fa;--code-bd:#d0d7de;--code-fg:#24292f;}
+    @media(prefers-color-scheme:dark){
+      :root{--code-bg:#0d1117;--code-bd:#30363d;--code-fg:#c9d1d9;}
     }
-    #markdown-toc li { margin: .15rem 0; position: relative; }
-
-    /* 目录链接交互 */
-    #markdown-toc a { text-decoration: none; border-bottom: 1px dashed transparent; }
-    #markdown-toc a:hover { border-bottom-color: currentColor; }
-
-    /* 折叠块 summary 样式 */
-    details > summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 700;
-      margin-bottom: .25rem;
-      font-size: 2rem; /* 这里调目录标题大小 */
+    .note-body pre,
+    .note-body code{
+      font-family:"JetBrains Mono","Fira Code","SFMono-Regular",Consolas,Menlo,monospace;
+      font-size:.92rem;color:var(--code-fg);
     }
-    details > summary::before { content: "▸ "; display: inline-block; transform: translateY(-1px); opacity: .6; }
-    details[open] > summary::before { content: "▾ "; }
-
-    /* 命中锚点高亮 */
-    h2:target {
-      background: rgba(0, 120, 215, .08);
-      border-left: 4px solid rgba(0, 120, 215, .5);
-      padding-left: .5rem;
-      scroll-margin-top: 72px;
+    .note-body pre{
+      background:var(--code-bg);border:1px solid var(--code-bd);border-radius:6px;
+      padding:.85rem 1rem;line-height:1.55;overflow-x:auto;-webkit-overflow-scrolling:touch;tab-size:2;
     }
-
-    /* 正文列表紧凑些 */
-    .note-body ul { margin: .25rem 0 .5rem 1.2rem; }
-    .note-body li { margin: .1rem 0; }
-
-    /* 代码块可读性：可按需调整 */
-    .highlight pre, pre code {
-      font-size: 14px;
-      line-height: 1.55;
-      border-radius: 6px;
+    .note-body pre>code{padding:0;background:none;}
+    .note-body p code,
+    .note-body li code{
+      background:var(--code-bg);border:1px solid var(--code-bd);
+      padding:.05rem .3rem;border-radius:4px;
     }
   </style>
 </head>
@@ -59,7 +32,8 @@
   {%- include header.html -%}
   <main class="page-content" aria-label="Content">
     <div class="wrapper note-body">
-      {{ content }}   <!-- 不要加任何过滤器 -->
+      {{ content }}
+      <p><a href="/">⬅ 返回首页</a></p>
     </div>
   </main>
   {%- include footer.html -%}
