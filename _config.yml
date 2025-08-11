@@ -13,10 +13,17 @@ theme: minima
 }
 
 /* 代码文字 */
+.note-body pre,
 .note-body code {
-  font-family: SFMono-Regular, Consolas, Menlo, monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, Menlo, monospace;
   font-size: 0.9rem;
 }
+
+/* 如果要代码连字（可选） */
+.note-body code {
+  font-variant-ligatures: normal;
+}
+
 
 
 collections:
