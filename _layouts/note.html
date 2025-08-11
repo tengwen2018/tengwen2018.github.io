@@ -17,3 +17,70 @@
   <p><a href="/">⬅ 返回首页</a></p>
 </body>
 </html>
+
+<style>
+  /* 平滑滚动到锚点 */
+  html { scroll-behavior: smooth; }
+
+  /* 目录块整体：去掉上下空白、字号稍小 */
+  #markdown-toc {                 /* kramdown 生成的 TOC 的默认 id */
+    margin: .25rem 0 0 0;
+    padding-left: 1.2rem;        /* 控制缩进 */
+    font-size: 0.95rem;
+    line-height: 1.4;
+    list-style: none;             /* 先去掉默认符号，下面自定义序号 */
+    counter-reset: sec;           /* 开启 CSS 计数器 */
+  }
+  #markdown-toc li {
+    margin: .15rem 0;
+    position: relative;
+  }
+  /* 自动编号：01、02、03…（想要圆点就删掉这两段） */
+  #markdown-toc li::before {
+    counter-increment: sec;
+    content: counter(sec, decimal-leading-zero) ". ";
+    position: absolute;
+    left: -2.2rem;
+    width: 2rem;
+    text-align: right;
+    opacity: .5;
+  }
+
+  /* 目录链接样式与交互 */
+  #markdown-toc a {
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+  }
+  #markdown-toc a:hover {
+    border-bottom-color: currentColor;
+  }
+
+  /* 折叠块 <details> 的 summary（下拉箭头换成自定义） */
+  details > summary {
+    cursor: pointer;
+    list-style: none;             /* 去掉默认小三角 */
+    font-weight: 600;
+    margin-bottom: .25rem;
+  }
+  details > summary::before {
+    content: "▸ ";
+    display: inline-block;
+    transform: translateY(-1px);
+    opacity: .6;
+  }
+  details[open] > summary::before {
+    content: "▾ ";
+  }
+
+  /* 命中锚点的当天标题高亮（点击目录后更易定位） */
+  h2:target {
+    background: rgba(0, 120, 215, .08);
+    border-left: 4px solid rgba(0, 120, 215, .5);
+    padding-left: .5rem;
+    scroll-margin-top: 72px;  /* 有固定头部时可防止被遮住，按需调整 */
+  }
+
+  /* 更紧凑的正文列表 */
+  .note-body ul { margin: .25rem 0 .5rem 1.2rem; }
+  .note-body li { margin: .1rem 0; }
+</style>
